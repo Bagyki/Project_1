@@ -1,5 +1,2 @@
-﻿  Main.cpp
-C:\WS\Project_1\Twenty-one\Twenty-one\Main.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  card.cpp
-  Generating Code...
+﻿  card.cpp
   Twenty-one.vcxproj -> C:\WS\Project_1\Twenty-one\x64\Debug\Twenty-one.exe

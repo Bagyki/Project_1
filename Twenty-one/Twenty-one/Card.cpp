@@ -57,6 +57,7 @@ bool Card::askForNewCard()
 	}
 	while (answer != "i" && answer != "n");
 
+	/*
 	if (answer == "i")
 	{
 		return true;
@@ -65,6 +66,8 @@ bool Card::askForNewCard()
 	{
 		return false;
 	}
+	*/
+	return answer == "i";
 }
 
 
@@ -77,9 +80,6 @@ int Card::playDealer()
 	}
 	while (m_Dealer < 17);
 
-	if (m_Dealer == 17)
-	{
-	}
 	return m_Dealer;
 }
 
@@ -99,9 +99,6 @@ int Card::playPlayer()
     } 
     while (ask == true && m_Player <= 21);
     
-    if (ask == false)
-    {
-    }
 	return m_Player;
 }
 
@@ -109,28 +106,22 @@ int Card::playPlayer()
 void Card::winner()
 {
 	cout << "Jatekos: " << m_Player << ", " << "Oszto: " << m_Dealer << endl;
-	if (m_Player == m_Dealer)
+	
+	if (m_Player == m_Dealer && m_Player < 22 && m_Dealer < 22)
 	{
 		cout << "Az eredmeny dontetlen!" << endl;
 	}
-	if (m_Player < 22 && m_Dealer < 22)
+	else
 	{
-		if (m_Player > m_Dealer)
+		if (m_Player <= 21 && m_Player > m_Dealer || m_Player <= 21 && m_Dealer > 21)   // if (m_Player <= 21 && (m_Player > m_Dealer || m_Dealer > 21))
 		{
 			cout << "Nyertel! Gratulalunk!" << endl;
 		}
-		if (m_Dealer > m_Player)
+		else
 		{
 			cout << "A bank nyert!" << endl;
 		}
-	}
-	if (m_Player > 21)
-	{
-		cout << "A bank nyert!" << endl;
-	}
-	if (m_Dealer > 21 && m_Player < 22)
-	{
-		cout << "Nyertel! Gratulalunk!" << endl;
+
 	}
 }
 
