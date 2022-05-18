@@ -1,0 +1,9 @@
+﻿  Card.cpp
+  Dealer.cpp
+  Deck.cpp
+C:\WS\Project_1\Blackjack\Blackjack\Deck.cpp(51,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Main.cpp
+C:\WS\Project_1\Blackjack\Blackjack\Main.cpp(25,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Player.cpp
+  Generating Code...
+  Blackjack.vcxproj -> C:\WS\Project_1\Blackjack\x64\Debug\Blackjack.exe

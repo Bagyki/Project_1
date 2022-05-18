@@ -10,14 +10,14 @@ using namespace std;
 
 
 
-void Card::setPlayer(int player)
+void Card::setPlayer(int playersNumber, int player)
 {
-	m_Player = player;
+	m_Players[playersNumber] = player;
 }
 
-int Card::getPlayer() const
+int Card::getPlayer(int playersNumber) const
 {
-	return m_Player;
+	return m_Players[playersNumber];
 }
 
 void Card::setDealer(int dealer)
@@ -36,10 +36,11 @@ int Card::randomNumber()
 	return x;
 }
 
-void Card::showPlayerCards() const
+void Card::showPlayerCards(int player) const
 {
-	cout << "A lapjaid erteke " << getPlayer() << endl;
+	cout << "A lapjaid erteke " << player << endl;
 }
+
 
 void Card::showDealerCards() const
 {
@@ -84,7 +85,7 @@ int Card::playDealer()
 }
 
 
-int Card::playPlayer()
+int Card::playPlayer(int player)
 {
 	bool ask = true;
 	do
@@ -93,27 +94,27 @@ int Card::playPlayer()
         if (ask == true)
         {
             int x = randomNumber();
-            m_Player = m_Player + x;
-            showPlayerCards();
+            player = player + x;
+            showPlayerCards(player);
         }
     } 
-    while (ask == true && m_Player <= 21);
+    while (ask == true && player <= 21);
     
-	return m_Player;
+	return player;
 }
 
 
 void Card::winner()
 {
-	cout << "Jatekos: " << m_Player << ", " << "Oszto: " << m_Dealer << endl;
+	cout << "Jatekos: " << m_Players[0] << ", " << "Oszto: " << m_Dealer << endl;
 	
-	if (m_Player == m_Dealer && m_Player < 22 && m_Dealer < 22)
+	if (m_Players[0] == m_Dealer && m_Players[0] < 22 && m_Dealer < 22)
 	{
 		cout << "Az eredmeny dontetlen!" << endl;
 	}
 	else
 	{
-		if (m_Player <= 21 && m_Player > m_Dealer || m_Player <= 21 && m_Dealer > 21)   // if (m_Player <= 21 && (m_Player > m_Dealer || m_Dealer > 21))
+		if (m_Players[0] <= 21 && m_Players[0] > m_Dealer || m_Players[0] <= 21 && m_Dealer > 21)   // if (m_Player <= 21 && (m_Player > m_Dealer || m_Dealer > 21))
 		{
 			cout << "Nyertel! Gratulalunk!" << endl;
 		}

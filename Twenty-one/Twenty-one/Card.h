@@ -2,7 +2,7 @@
 #define CARD_H
 
 #include <iostream>
-
+#include <vector>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ class Card
 public:
 	Card()
 	{
-		m_Player = 0;
+		m_Players = {0,0,0,0,0};
 		m_Dealer = 0;
 	}
 
@@ -21,8 +21,8 @@ public:
 	{
 	}
 
-	void setPlayer(int player);
-	int getPlayer() const;
+	void setPlayer(int playersNumber, int player);
+	int getPlayer(int playersNumber) const;
 	
 	void setDealer(int dealer);
 	int getDealer() const;
@@ -31,7 +31,7 @@ public:
 	int randomNumber();
 	
 
-	void showPlayerCards() const;
+	void showPlayerCards(int player) const;
 	void showDealerCards() const;
 	
 
@@ -39,13 +39,13 @@ public:
 	
 
 	int playDealer();
-	int playPlayer();
+	int playPlayer(int player);
 
 	void winner();
 	
 
 private:
-	int m_Player;
+	vector<int> m_Players;
 	int m_Dealer;
 
 };

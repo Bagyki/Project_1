@@ -14,16 +14,25 @@ int main()
 	srand(time(NULL));
 
     Card card;
+
+
     
-    card.setDealer(card.randomNumber());
     card.playDealer();
     
 
-    
-    card.setPlayer(card.randomNumber());
-    cout << "Az elso lapod erteke " << card.getPlayer() << endl;
+    cout << "Jatekos 1" << endl;
+    card.setPlayer(0, card.randomNumber());
+    cout << "Az elso lapod erteke " << card.getPlayer(0) << endl;
 
-    card.playPlayer();
+    int player1 = card.playPlayer(card.getPlayer(0));
+    card.setPlayer(0, player1);
+
+    cout << "Jatekos 2" << endl;
+    card.setPlayer(1, card.randomNumber());
+    cout << "Az elso lapod erteke " << card.getPlayer(1) << endl;
+
+    int player2 = card.playPlayer(card.getPlayer(1));
+    card.setPlayer(1, player2);
 
  
     card.winner();
