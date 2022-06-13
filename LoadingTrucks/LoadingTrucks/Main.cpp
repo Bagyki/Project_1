@@ -19,6 +19,9 @@ void checkLoadInAllTrucks(const Load& load, vector<Truck>& trucks);
 
 int main()
 {
+	/// COMMENT/////
+	// Nem kell egy truck-ot alapból beletenni a vektorba. Mi van ha nincs egy rakomány sem. Akkor hány truck kell?
+	////////////////
 	Truck truck;
 	vector<Truck> trucks;
 	trucks.push_back(truck);
@@ -103,6 +106,9 @@ Load addNewLoad()
 	} 
 	while (weight > 20 && weight < 0);
 	
+	/// COMMENT/////
+	// Ezek az ellenőrzések feleslegesek, hiszen a ciklus csak akkor lép ki, ha megfelelő a súly.
+	////////////////
 	if (weight > 20)
 	{
 		cout << "Tulsulyos, nem felrakodhato!" << endl;
@@ -115,6 +121,7 @@ Load addNewLoad()
 	{
 		load.setLoad(weight);	
 	}
+	
 	return load;
 }
 
@@ -138,6 +145,13 @@ void checkLoadInAllTrucks(const Load &load, vector<Truck>& trucks)
 	int t = 0;
 	do
 	{
+		/// COMMENT/////
+	    // Ez így nem igazán jó. Gondolj a lépésekre amiket megbeszéltünk:
+        // 1. Megvizsgáljuk, hogy van-e t-edik truck. Ha nincs létrehozunk egyet.
+		// 2. Megkérdezzük, hogy a t-edik truck elfogadja-e a rakományt. 
+		//    Ha igen: odaadjuk és jöhet a következő rakomány.
+		//    Ha nem:  Lépünk a következő truck-hoz (t = t+1) és visszatérünk az 1. lépéshez.
+	    ////////////////
 		check = trucks[t].checkLoad(load);
 		if (check == true)
 		{
@@ -147,6 +161,10 @@ void checkLoadInAllTrucks(const Load &load, vector<Truck>& trucks)
 		{
 			if (t == trucks.size() - 1)
 			{
+				/// COMMENT/////
+				// Ha az utolsó truck nem fogadta el az árut, tényleg kell egy új truck (eddig jó)
+				// De a t-t is növelni kell, hogy a következő körben az "új" truck-tól kérdezzen.
+				////////////////
 				addNewTruck(trucks);
 			}
 			else
