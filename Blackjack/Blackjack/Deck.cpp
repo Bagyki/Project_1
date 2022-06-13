@@ -33,7 +33,6 @@ void Deck::showDeck() const
 	for (int i = 0; i < m_Deck.size(); i++)
 	{
 		cout << m_Deck[i].getColour() << " " << m_Deck[i].getValue() << endl;
-		//cout << m_Deck[i].showCard() << endl;
 	}
 }
 

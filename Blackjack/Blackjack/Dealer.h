@@ -22,7 +22,7 @@ public:
 
 
 private:
-	vector<Card> m_DealerCards;
+	
 
 };
 

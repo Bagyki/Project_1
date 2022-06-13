@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Deck.h"
+#include "Card.h"  ////   !!!!!!!!!!!!!!!!!!!!!!  kell, hiába ismeri már a Deck osztály
 
 
 class Player
@@ -19,9 +20,11 @@ public:
 	virtual string showCard() const;
 
 
-private:
-	vector<Card> m_PlayerCards;
+protected:
+	vector<Card> m_Cards;
 
+private:
+	
 };
 
 

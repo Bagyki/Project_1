@@ -38,9 +38,4 @@ const array<string, 4> Card::getCardsColour()
 	return colour;
 }
 
-/*
-void Card::showCard() const
-{
-	cout << m_Colour << " " << m_Value;
-}
-*/
+

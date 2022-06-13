@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <array>
+#include <string>
 
 
 using namespace std;
@@ -39,7 +40,7 @@ public:
 	static const array<string, 4> getCardsColour();
 	
 
-	//void showCard() const;
+	
 
 
 private:

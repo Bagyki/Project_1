@@ -19,6 +19,8 @@ void showDealerCards(Dealer dealer);
 
 void winner(const int player, const int dealer);
 
+void insertEmptyLine();
+
 
 int main()
 {
@@ -51,39 +53,32 @@ int main()
 
 	dealer.play(deck);
 
-	cout << endl;
+	system("cls");   //törli a konzolról a korábbiakat
+
+
+	insertEmptyLine();
+
 
 	showAllPlayersCards(p);
 	
-	cout << endl;
 
+	insertEmptyLine();
+	insertEmptyLine();
 
-	/*
-	for (int i = 0; i < p.size(); i++)
-	{
-		cout << "A " << i + 1 << ". jatekos lapjai: " << p[i].showCard() << endl;
-	}
-	*/
-
-	cout << endl;
 
 	showDealerCards(dealer);
 
-	cout << endl;
+	
+	insertEmptyLine();
+	insertEmptyLine();
 
-	//cout << "Az oszto lapjai: " << dealer.showCard() << endl;
-
-	cout << endl;
-
-
-	if (p.size() > 0)
+	
+	for (int i = 0; i < p.size(); i++)
 	{
-		for (int i = 0; i < p.size(); i++)
-		{
-			cout << "A " << i + 1 << ". jatekos eredmenye: " << endl;
-			winner(p[i].cardsValue(), dealer.cardsValue());
-		}
+		cout << "A " << i + 1 << ". jatekos eredmenye: " << endl;
+		winner(p[i].cardsValue(), dealer.cardsValue());
 	}
+	
 
 }
 
@@ -152,3 +147,8 @@ void winner(const int player, const int dealer)
 	}
 }
 
+
+void insertEmptyLine()
+{
+	cout << endl;
+}
