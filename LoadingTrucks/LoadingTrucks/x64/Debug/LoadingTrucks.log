@@ -1,6 +1,5 @@
 ﻿  Main.cpp
   Truck.cpp
   Generating Code...
-C:\WS\Project_1\LoadingTrucks\LoadingTrucks\Main.cpp(92): warning C4715: 'askForNewLoad': not all control paths return a value
-C:\WS\Project_1\LoadingTrucks\LoadingTrucks\Main.cpp(120): warning C4715: 'addNewLoad': not all control paths return a value
+C:\WS\Project_1\LoadingTrucks\LoadingTrucks\Main.cpp(93): warning C4715: 'askForNewLoad': not all control paths return a value
   LoadingTrucks.vcxproj -> C:\WS\Project_1\LoadingTrucks\x64\Debug\LoadingTrucks.exe

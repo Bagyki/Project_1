@@ -14,7 +14,7 @@ double Truck::getTruck() const
 }
 */
 
-double Truck::maxWeight = 20;
+const double Truck::maxWeight = 20;
 
 
 double Truck::getMaxWeight()
@@ -33,14 +33,21 @@ double Truck::getLoads()
 	return loadedWeight;
 }
 
-void Truck::addLoadToTruck(Load load)
+bool Truck::addLoadToTruck(const Load &load)
 {
-	m_Loads.push_back(load);
+	bool accepted = checkLoad(load);
+	if (accepted == true)                         // if (accepted)  - elég!
+	{
+		m_Loads.push_back(load);
+	}
+	return accepted;
 }
 
-bool Truck::checkLoad(Load load)
+
+bool Truck::checkLoad(const Load &load)
 {	
-	if ((load.getLoad() + getLoads()) <= getMaxWeight())
+	//if ((load.getLoad() + getLoads()) <= getMaxWeight())
+	if ((load.getLoad() + getLoads()) <= maxWeight)
 	{
 		return true;
 	}
@@ -55,8 +62,7 @@ string Truck::showTruck()
 	string truck;
 	for (int i = 0; i < m_Loads.size(); i++)
 	{
-		truck = truck + ", " + to_string(m_Loads[i].getLoad());
-		//cout << m_Loads[i].getLoad() << endl;
+		truck = truck + to_string(m_Loads[i].getLoad()) + ", ";
 	}
 	return truck;
 }

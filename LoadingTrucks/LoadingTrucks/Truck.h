@@ -18,21 +18,22 @@ public:
 	//double getTruck() const;
 	
 	
-	static double maxWeight;
+	
 	
 	static double getMaxWeight();
 
-	double getLoads();
+	double getLoads();  //const
 	
-	void addLoadToTruck(Load load);
+	bool addLoadToTruck(const Load &load);
 
-	bool checkLoad(Load load);
+	bool checkLoad(const Load &load);
 
 	string showTruck();
 
 
 private:
 	vector<Load> m_Loads;
+	static const double maxWeight;
 };
 
 

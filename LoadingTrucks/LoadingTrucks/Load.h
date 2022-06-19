@@ -6,13 +6,13 @@
 class Load
 {
 public:
-	Load() 
+	Load(double load) 
 	{
-		m_Weight = 0;
+		m_Weight = load;
 	}
 	~Load(){}
 
-	void setLoad(double load);
+	void setLoad(double load);   //setWeight
 	
 	double getLoad() const;
 	

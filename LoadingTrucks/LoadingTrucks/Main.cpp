@@ -1,5 +1,4 @@
 #include <iostream>
-//#include <string>
 #include <vector>
 #include "Load.h"
 #include "Truck.h"
@@ -16,34 +15,33 @@ void addNewTruck(vector<Truck> &trucks);
 void insertEmptyLine();
 
 void checkLoadInAllTrucks(const Load& load, vector<Truck>& trucks);
+void checkLoadInAllTrucks2(const Load& load, vector<Truck>& trucks);
 
 int main()
 {
 	/// COMMENT/////
 	// Nem kell egy truck-ot alapból beletenni a vektorba. Mi van ha nincs egy rakomány sem. Akkor hány truck kell?
 	////////////////
-	Truck truck;
 	vector<Truck> trucks;
-	trucks.push_back(truck);
 	vector<Load> allLoads;
 
 	cout << "Udvozlunk! Rakodjunk!" << endl;
 
 	insertEmptyLine();
 
-	bool ask = true;
+	bool ask = true;							// fillload list
 	do
 	{
 		ask = askForNewLoad();
 		if (ask == true)
 		{
-			allLoads.push_back(addNewLoad());
+			allLoads.push_back(addNewLoad());   // ha addNewLoad akkor rakja is bele, vagy csak create
 		}
 
 	} while (ask == true);
 
 
-	for (int i = 0; i < allLoads.size(); i++)
+	for (int i = 0; i < allLoads.size(); i++)		//listload list
 	{
 		cout << allLoads[i].getLoad() << endl;
 	}
@@ -52,9 +50,9 @@ int main()
 	insertEmptyLine();
 
 	
-	for (int i = 0; i < allLoads.size(); i++)
+	for (int i = 0; i < allLoads.size(); i++)		////
 	{
-		checkLoadInAllTrucks(allLoads[i], trucks);
+		checkLoadInAllTrucks2(allLoads[i], trucks);
 	}
 	
 
@@ -63,7 +61,7 @@ int main()
 
 	insertEmptyLine();
 
-	for (int t = 0; t < trucks.size(); t++)
+	for (int t = 0; t < trucks.size(); t++)				/////
 	{
 		cout << t + 1 << ". kamion rakomanya: " << trucks[t].showTruck() << endl;
 	}
@@ -97,31 +95,28 @@ bool askForNewLoad()
 
 Load addNewLoad()
 {
-	Load load;
+	
 	double weight = 0;
 	do
 	{
 		cout << "Add meg a rakomany sulyat tonnaban!" << endl;
 		cin >> weight;
+		if (weight > 20)
+		{
+			cout << "Tulsulyos, nem felrakodhato!" << endl;
+		}
+		if (weight <= 0)
+		{
+			cout << "Helyes sulyt adj meg, negativ nem lehet!" << endl;
+		}
 	} 
-	while (weight > 20 && weight < 0);
+	while (weight > 20 || weight <= 0);
 	
 	/// COMMENT/////
 	// Ezek az ellenőrzések feleslegesek, hiszen a ciklus csak akkor lép ki, ha megfelelő a súly.
 	////////////////
-	if (weight > 20)
-	{
-		cout << "Tulsulyos, nem felrakodhato!" << endl;
-	}
-	if (weight <= 0)
-	{
-		cout << "Helyes sulyt adj meg, negativ nem lehet!" << endl;
-	}
-	if (weight <= 20 && weight > 0)
-	{
-		load.setLoad(weight);	
-	}
-	
+	Load load(weight);
+
 	return load;
 }
 
@@ -167,11 +162,31 @@ void checkLoadInAllTrucks(const Load &load, vector<Truck>& trucks)
 				////////////////
 				addNewTruck(trucks);
 			}
-			else
-			{
-				t++;
-			}
+			t++;
 		}	
 	} while (check == false);
 }
 
+
+void checkLoadInAllTrucks2(const Load& load, vector<Truck>& trucks)
+{
+	bool accepted = false;
+	int t = 0;
+	do
+	{
+		if (t == trucks.size())
+		{
+			addNewTruck(trucks);
+		}
+		
+		accepted = trucks[t].addLoadToTruck(load);
+
+		if (accepted == false)
+		{
+			t++;
+		}
+		// itt elég lenne csak a t++;  !!!!
+		
+	} while (accepted == false);
+
+}
