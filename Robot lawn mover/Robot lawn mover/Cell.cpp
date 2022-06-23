@@ -12,12 +12,12 @@ void Cell::setCol(int col)
 	m_ColNo = col;
 }
 
-void Cell::setCondition(char A)
+void Cell::setCondition(Condition condition)
 {
-	m_Condition = A;
+	m_Condition = condition;
 }
 
-char Cell::getCondition()
+Condition Cell::getCondition()
 {
 	return m_Condition;
 }

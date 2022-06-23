@@ -1,24 +1,15 @@
-#ifndef CELL_CPP
-#define CELL_CPP
+#ifndef CELL_H
+#define CELL_H
 
 
-
-/*
 enum Condition
-{
-	X,
-	O,
-	R,
-};
-
-/*
-enum Condition2
 {
 	notLawned,
 	lawned,
 	robot,
+	stone,
 };
-*/
+
 
 class Cell
 {
@@ -27,21 +18,24 @@ public:
 	{
 		m_RowNo = 0;
 		m_ColNo = 0;
-		m_Condition = 'X';
+		m_Condition = Condition::notLawned;
 	}
 	~Cell()
 	{}
 
 	void setRow(int row);
+	
 	void setCol(int col);
-	void setCondition(char a);
-	char getCondition();
+	
+	void setCondition(Condition condition);
+	
+	Condition getCondition();
 
 
 private:
 	int m_RowNo;
 	int m_ColNo;
-	char m_Condition;
+	Condition m_Condition;
 
 };
 
