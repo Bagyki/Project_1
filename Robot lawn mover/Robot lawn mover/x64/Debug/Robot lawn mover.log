@@ -1,7 +1,2 @@
-﻿  Area.cpp
-  Cell.cpp
-  Main.cpp
-C:\WS\Project_1\Robot lawn mover\Robot lawn mover\Main.cpp(18,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Robot.cpp
-  Generating Code...
+﻿  Robot.cpp
   Robot lawn mover.vcxproj -> C:\WS\Project_1\Robot lawn mover\x64\Debug\Robot lawn mover.exe

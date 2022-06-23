@@ -30,7 +30,7 @@ public:
 
 	void setArea(Area* area);
 
-	void move();
+	virtual void move();
 
 	void setCurrentDirection(Direction direction);
 

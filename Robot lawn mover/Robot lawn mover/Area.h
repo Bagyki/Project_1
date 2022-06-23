@@ -19,8 +19,6 @@ public:
 
 	void createAndFillArea();
 
-	Condition giveBackCondition(int row, int col);
-
 	void setRobotStartPosition(int row, int col);
 
 	int giveBackRowNoOfRobot();

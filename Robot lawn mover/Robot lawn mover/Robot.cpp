@@ -29,7 +29,7 @@ void Robot::move()
 
 	bool validCell = false;
 
-	if (m_StepCounter > 10)									////// elrontani a 45°-os szimetriát
+	if (m_StepCounter > 15)									////// elrontani a 45°-os szimetriát
 	{
 		m_StepCounter = 0;
 		setCurrentDirection(generateNewDirection());

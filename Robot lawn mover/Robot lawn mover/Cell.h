@@ -16,16 +16,10 @@ class Cell
 public:
 	Cell() 
 	{
-		m_RowNo = 0;
-		m_ColNo = 0;
 		m_Condition = Condition::notLawned;
 	}
 	~Cell()
 	{}
-
-	void setRow(int row);
-	
-	void setCol(int col);
 	
 	void setCondition(Condition condition);
 	
@@ -33,8 +27,7 @@ public:
 
 
 private:
-	int m_RowNo;
-	int m_ColNo;
+	
 	Condition m_Condition;
 
 };

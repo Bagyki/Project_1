@@ -33,8 +33,6 @@ void Area::createAndFillArea()
 		for (int col = 0; col < m_ColNo; col++)
 		{
 			Cell cell;
-			cell.setRow(row);
-			cell.setCol(col);
 			cell.setCondition(notLawned);
 			m_Area[row][col] = cell;
 		}
@@ -44,11 +42,6 @@ void Area::createAndFillArea()
 void Area::changeCellCondition(int row, int col, Condition condition)
 {
 	m_Area[row][col].setCondition(condition);
-}
-
-Condition Area::giveBackCondition(int row, int col)
-{
-	return m_Area[row][col].getCondition();
 }
 
 void Area::setRobotStartPosition(int row, int col)
