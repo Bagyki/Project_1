@@ -1,6 +1,2 @@
-﻿  Main.cpp
-C:\WS\Project_1\Lottery 6\Lottery 6\Main.cpp(49,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\WS\Project_1\Lottery 6\Lottery 6\Main.cpp(54,2): warning C4551: function call missing argument list
-  SixLottery.cpp
-  Generating Code...
+﻿  PlayingLottery.cpp
   Lottery 6.vcxproj -> C:\WS\Project_1\Lottery 6\x64\Debug\Lottery 6.exe

@@ -97,7 +97,7 @@ bool Area::isValidCell(int row, int col)
 			valid = true;
 		}
 	}
-	if (m_Area[row][col].getCondition() == Condition::stone)
+	if (m_Area[row][col].getCondition() == Condition::stone)		//// for later
 	{
 		valid = false;
 	}

@@ -40,6 +40,7 @@ void PlayingLottery::randomDrawsOfMachine(SixLottery sixLottery)
 	for (int i = 0; i < SixLottery::lotteryNumber; i++)
 	{
 		int x = 0;
+		do
 		{
 			x = randomDraw();
 			checkForSameDraw(x);
