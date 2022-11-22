@@ -12,13 +12,21 @@ using namespace std;
 class LotteryFive : public Lottery
 {
 public:
-	LotteryFive() {}
+	LotteryFive() 
+	{
+		m_FirstNum = 1;
+		m_LastNum = 90;
+		m_DrawsNum = 5;
+	}
 	~LotteryFive() {}
+
+
 
 	
 
 private:
-	vector<int> m_Draws;
+	
+
 };
 
 

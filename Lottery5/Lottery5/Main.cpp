@@ -14,7 +14,6 @@ int main()
 {
 	srand(time(NULL));
 
-	Lottery lottery;
 	LotteryFive machineDraws;
 	vector<LotteryFive> lf;
 
@@ -24,23 +23,33 @@ int main()
 	for (int i = 0; i < numberOfRandomTips; i++)
 	{
 		LotteryFive randomTips;
-		randomTips.fiveDraws();
+		randomTips.Draws();
 		lf.push_back(randomTips);
 	}
 
-	machineDraws.fiveDraws();
+	machineDraws.Draws();
+
+	int draws = machineDraws.getDrawsNumber();
+
+	vector<int> hitsVector(draws+1, 0);
+
 
 
 	for (int i = 0; i < numberOfRandomTips; i++)
 	{
-		lottery.countHits(lottery.checkResultOfDraws(lf[i].getDraws(), machineDraws.getDraws()));
+		int hits = 0;
+
+		hits = lf[i].checkResultOfDraw(machineDraws.getDraws());
+
+		hitsVector[hits]++;
+
+	}
+
+	for (int i = 0; i < hitsVector.size(); i++)
+	{
+		cout << "A(z) " << i << " talalatosok szama: " << hitsVector[i] << endl;
 	}
 
 
-	cout << "A(z) 2 talalatosok szama: " << Lottery::twoHits << endl;
-	cout << "A(z) 3 talalatosok szama: " << Lottery::threeHits << endl;
-	cout << "A(z) 4 talalatosok szama: " << Lottery::fourHits << endl;
-	cout << "A(z) 5 talalatosok szama: " << Lottery::fiveHits << endl;
-
-
 };
+

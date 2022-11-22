@@ -11,40 +11,35 @@ using namespace std;
 class Lottery
 {
 public:
-	Lottery() {}
+	Lottery()
+	{
+		m_FirstNum = 0;
+		m_LastNum = 0;
+		m_DrawsNum = 0;
+	}
 	~Lottery() {}
 
-	const static int firstNum;
-	const static int lastNum;
-	const static int drawsNum;
+	int getDrawsNumber() const;
 
-	static int noHit;
-	static int oneHit;
-	static int twoHits;
-	static int threeHits;
-	static int fourHits;
-	static int fiveHits;
+	const vector<int>& getDraws() const;
 
+	int randomDraw() const;
 
-	const vector<int> getDraws();
+	bool checkIfSameDraw(int draw) const;
 
-	int randomDraw();
+	void Draws();
 
-	bool checkIfSameDraw(int draw);
+	int checkResultOfDraw(const vector<int>& machineDraw) const;
 
-	void fiveDraws();
-
-	int checkResultOfDraws(const vector<int> &randomTips, const vector<int> &machineDraw);
-
-	void countHits(int i);
-
-
+protected:
+	int m_FirstNum;
+	int m_LastNum;
+	int m_DrawsNum;
 
 private:
 	vector<int> m_Draws;
 
 };
-
 
 
 #endif

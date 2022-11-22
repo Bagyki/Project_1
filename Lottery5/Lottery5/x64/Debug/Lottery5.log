@@ -1,5 +1,3 @@
-﻿  LotteryFive.cpp
-  Main.cpp
+﻿  Main.cpp
 C:\WS\Project_1\Lottery5\Lottery5\Main.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
   Lottery5.vcxproj -> C:\WS\Project_1\Lottery5\x64\Debug\Lottery5.exe
